@@ -16,7 +16,7 @@ intents.typing = False
 intents.presences = False
 intents.members = True 
 
-TOKEN = 'MTA5ODM3MTAyNjUxNTE0NDg0NQ.GVDK65.Y54SKyYRQOXXHZElutnr4WDYk3Tqg68YIQS2cY'
+TOKEN = 'MTA5ODM3MTAyNjUxNTE0NDg0NQ.Ga46v0.V4KzVTIs_9qdyKIbP7GpoahFtMbzPJ6Ds3cwas'
 COMMAND_PREFIX = "!"
 
 # Crear el bot con un prefijo de comando y las intenciones configuradas

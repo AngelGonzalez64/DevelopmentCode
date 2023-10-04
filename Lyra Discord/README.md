@@ -4,15 +4,15 @@ Este es un bot de Discord que permite generar códigos QR a partir de texto prop
 
 ## Comandos del Bot
 
-- `!QR <contenido>`: Este comando genera un código QR a partir del contenido proporcionado. El contenido debe tener un máximo de 500 caracteres. El bot generará un código QR en blanco y negro y lo enviará al canal donde se llamó el comando. Además, mencionará al usuario que solicitó la generación del código QR.
+- `@Menciona_el_bot QR <contenido>`: Este comando genera un código QR a partir del contenido proporcionado. El contenido debe tener un máximo de 500 caracteres. El bot generará un código QR en blanco y negro y lo enviará al canal donde se llamó el comando. Además, mencionará al usuario que solicitó la generación del código QR.
 
-- `!estadisticas`: Este comando muestra estadísticas del servidor de Discord en el que se encuentra el bot. Proporciona información sobre el número de miembros, roles, canales y más.
+- `@Menciona_el_bot estadisticas`: Este comando muestra estadísticas del servidor de Discord en el que se encuentra el bot. Proporciona información sobre el número de miembros, roles, canales y más.
 
-- `!Roles`: Este comando muestra una lista de todos los roles en el servidor de Discord. Muestra el nombre de cada rol.
+- `@Menciona_el_bot Roles`: Este comando muestra una lista de todos los roles en el servidor de Discord. Muestra el nombre de cada rol.
 
-- `!asignar_rol <rol> <miembro>`: Este comando permite asignar un rol a un miembro en el servidor de Discord. El bot verificará si tiene los permisos necesarios y si el rol que se está asignando no es superior al suyo.
+- `@Menciona_el_bot asignar_rol <rol> <miembro>`: Este comando permite asignar un rol a un miembro en el servidor de Discord. El bot verificará si tiene los permisos necesarios y si el rol que se está asignando no es superior al suyo.
 
-- `!quitar_rol <rol> <miembro>`: Este comando permite quitar un rol a un miembro en el servidor de Discord. Al igual que en el comando anterior, el bot verificará los permisos necesarios y la jerarquía de roles.
+- `@Menciona_el_bot quitar_rol <rol> <miembro>`: Este comando permite quitar un rol a un miembro en el servidor de Discord. Al igual que en el comando anterior, el bot verificará los permisos necesarios y la jerarquía de roles.
 
 ## Configuración
 
