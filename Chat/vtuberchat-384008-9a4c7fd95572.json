@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vtuberchat-384008",
+  "private_key_id": "9a4c7fd955721b1e54ab601abae181900abf6299",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDgWgW5pzoizQMW\nkgFEbBaHwX3DDoifd2qxNfK9x8lx9nqjvQKnfIORVGFjUgdpIBRTbpt7N6W8sxVg\nF+QcVBoiWOlNUcBLWfCbKpl1eSi6u8l5W6LCR85AcjkryCDikbuc1+RT+VdhAbtF\n6gFrdgNd9JaKURChRHGGbMp6ccx5hF4DDCX8vRyOubQ7qc1det6SgNPLViagP3HD\nsHd/0/FeKVs8p3xUlZKJVLc/EDDqPzjSnppT1gQANXdEmosFOjASk5Q9jiZj1cwf\n8VSJuoWhF/ASa0274f4lOehFFPI0SmAlGDyk3+O3BbjQff+x1aUMtFq0qSJaMvFA\nU4/ZdVLBAgMBAAECggEADNDM+kGgON6x1MyQVU1ArY6TADJzVtCmf+r6ASH0KEC7\n2WCcUd7zUQ5F5eYzVYD8nZYi5uioh11KKkwTFBSFzafQjpcjP0AAVjdvvrMmGCH5\nV1JcZhwInyEnPOYDYuM6RAeycPg8UpFGa677V8fNAhqiWCewpdWtZSVlHOt6kl0E\nSZjgbWvyZet2LXax4ygDLNMDgv8bJ8YPZce6YfkMwKCW+CTS3gd8ljTIyIkRVCTu\nTpH+LDLYAH+kBQwBLQJHq9/07E0D2Bn0Bj6unO2MBjFhYJrqK8pvxI2BYWNkbtap\nFStmgXihp4V8nfas4STNWI7FaBUgMQIm1MUR0KapcQKBgQDxwQI/RBANACtbz7ZV\niXefQmd1alNXd72e5SuITNFQgVUEiJ8SUKpkAuKGb/KD1/d90sFXhFAYoCntpnMp\njqcE4JXkMERnb8P9kwl3atB2FiIGbBKjj2CarZuBsZkTnJGiV5NJ2HJOJ//HhLWf\n9Ro6vC4vdnp45rhi6GZsNUykvQKBgQDtkn2OfO4U7C5I28O8cs2LbvMHZWnfn663\nXiJz8xDwY+3fcLDLA5kgafNvA9Nx87IUVzahmRb9Z5dvT+Cc3RJEdpqMIjedXqsc\nbJS+WkgoZ/eDzpSmtN0NApkjy/uqSY3wh/y7B8BowgbScpqRk9DUvPhem5/Qzqd+\ne/KdikcgVQKBgH4e4Rs8WNtPcU9Oh6MMOlndfLfmpmAFWelhSVqsKK7FKiNZWxNk\n/d97Gc5k7LIXo0gDAVa08kxGklkm8wGFKGEFAW2wOJ910Vuir9ea4/IXDd0n2Hl3\nvUA0veHlUyTGE7wL0A1AXDGl8GyYMWCnr+1gav/b4XzdcOg4seZV0AxJAoGBAJj3\n1+xlOI80O+Ehz/iJGxwKhmVewTsCAGeFLz3lZiTC0ykp0EwHtxMN5Xa3ye/3b9R1\nC3Ilto3Xo8RCdGfMWLTIgV51scWcbSTSLTwbuZZ6yv6Nh12H20VDRQOtlg/haIlV\npj9vEE7jj6z1qdzOhopUWr/gCJlUVri0alVR8dY5AoGAEOAytt5k9G5m0HyNuvAf\nvw9XiVcVW+Rr23qorREuPHoRNq1H6mAhstubG86upLRTIREpWglPJ7maFAOWG2+s\nfaXX72rOixG4nLy3Z0Hb1C+gFjDaqgWGePEmS3Wnh8vaYaPMGMx333xyry1NFLag\nEELhE9P8UITDw8ys8nc4ovM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "virtual-chat@vtuberchat-384008.iam.gserviceaccount.com",
+  "client_id": "110100596492535100794",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/virtual-chat%40vtuberchat-384008.iam.gserviceaccount.com"
+}
