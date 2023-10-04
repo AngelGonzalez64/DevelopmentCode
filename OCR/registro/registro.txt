@@ -1,0 +1,393 @@
+Dirección de imagen: images/4.png
+Texto extraído:
+COSAS QUE SOLO VES
+----
+SI ERES SOLITARIO
+----
+4:36
+----
+Hora de extracción: 2023-06-16 08:52:13
+Confianza promedio: 69.28%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/code.png
+Texto extraído:
+# Guardar los resultados
+----
+en
+----
+un
+----
+archivo
+----
+with open(result_file,
+----
+wb
+----
+as file:
+----
+pickle.dump(saved_results, file)
+----
+# Calcular la confianza promedio
+----
+en forma de porcentaje
+----
+confidence_list
+----
+[res[2] for
+----
+res in result]
+----
+average_confidence
+----
+sum(confidence_list)
+----
+len(confidence_list)
+----
+average_confidence_percentage
+----
+average_confidence
+----
+100
+----
+# Crear
+----
+un registro de la ejecución
+----
+registro
+----
+f"Dirección de imagen:
+----
+{image_path}|n"
+----
+registro
+----
++=
+----
+"Texto extraído:|n"
+----
+for
+----
+res in result:
+----
+text
+----
+res[1]
+----
+registro
+----
++=
+----
+f"
+----
+{text}|n"
+----
+registro
+----
++=
+----
+f"Hora de extracción:
+----
+{datetime.now( )}In"
+----
+registro
+----
++=
+----
+f"Confianza promedio:
+----
+{average_confidence_percentage}%|n"
+----
+registro
+----
++=
+----
+Hora de extracción: 2023-06-16 08:52:44
+Confianza promedio: 90.70%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/edge.png
+Texto extraído:
+5
+----
+TARGETA EDGE
+----
+Hora de extracción: 2023-06-16 08:53:49
+Confianza promedio: 60.74%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/tarea.png
+Texto extraído:
+Teams 9B
+----
+Group
+----
+(Topics 1-3)
+----
+SOLIS CASTILLO LUIS FERNANDO
+----
+VENANCIO RIVAS BERTIN
+----
+DIAZ ZEPEDA RICARDO
+----
+VALLES GARCIA OCTAVIO
+----
+Group 2 (Topics 4-5)
+----
+MEDRANO GOMEZ YAHIR ALEJANDRO
+----
+LOZANO LUNA JORGE GIOVANNY
+----
+HERNANDEZ ULISES
+----
+Group 3 (Topics 6-7)
+----
+RAMIREZ MORALES MANUEL DE JESUS
+----
+GURROLA SIQUEIROS HUGO EDUARDO
+----
+WALKUP ROSAS ALAN LEOPOLDO
+----
+Group 4 (Topics 8-9)
+----
+Hora de extracción: 2023-06-16 08:54:21
+Confianza promedio: 86.56%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/chat.png
+Texto extraído:
+Discord
+----
+El takero mamon
+----
+# anuncios
+----
+#
+----
+Buscar
+----
+2 mensajes nuevos desde las 6:17
+----
+Marcar como leído
+----
+OBJETIVO: NV 1
+----
+1/2 mejoras
+----
+DEMIGOD _ 2
+----
+5 ^
+----
+#
+----
+PatchBot
+----
+BOT
+----
+hoy
+----
+las 6:17
+----
+Leonix
+----
+Eventos
+----
+Valheim
+----
+SoulNight111
+----
+Explorar canales
+----
+Patch 0.217.4 - Hildir's Request (Public Test)
+----
+This update is for the Public Test version of Valheim; and may
+----
+BOT
+----
+therefore be unstable Before we launch this update to the
+----
+Nekotina
+----
+BOT
+----
+rules
+----
+Default version of the game
+----
+we
+----
+want to make sure to have a
+----
+Jugando
+----
+Ihelp
+----
+chance to discover bugs and adjust the balancing; to give you the
+----
+moderator-only
+----
+best game experience possible.
+----
+PatchBot
+----
+BOT
+----
+Jugando
+----
+https://PatchBot.io
+----
+Access the Public Test branch on Steam by right clicking
+----
+YAGPDB.xyz
+----
+BOT
+----
+GAMES
+----
+Valheim in your Steam library; and then select 'Properties': In
+----
+Jugando
+----
+Nadie espera la in 
+----
+# free-games
+----
+the new window; select 'Betas' and type in the code
+----
+"yesimadebackups". The
+----
+INADAPTADOS ~ 1
+----
+# anuncios
+----
+Venus Solis
+----
+PatchBot
+----
+BOT
+----
+hoy
+----
+las 6.31
+----
+CANALES DE TEXTO
+----
+# general
+----
+EVE Online
+----
+DESCONECTADO _ 7
+----
+# archivos
+----
+Patch Notes For 2023-06-16.1
+----
+EV=
+----
+S(HR
+----
+14 [
+----
+Features &
+----
+Changes:
+----
+# música
+----
+DigameLuis
+----
+Shadow War: Thanks to the efforts of loyalist capsuleers; the
+----
+# escuela
+----
+Minmatar Republic has completed construction of the third
+----
+Jorge Lozano
+----
+interstellar Shipcaster!
+----
+# private
+----
+Josh-Zeppeli
+----
+The Republic Interstellar Shipcaster is located in the Minmatar
+----
+CANALES DE VOZ
+----
+FW HQ system of Amo, Near Planet III, Close to the Republic
+----
+Fleet Anchorage Station.
+----
+Juan_develop ..
+----
+BOT
+----
+Lounge
+----
+To power the activation of the shipcaster; a new Republic
+----
+Sala de transmisión
+----
+Stellar Transmuter has been brought online in the nearby
+----
+Luis Fernando Solía.
+----
+Enviar mensaje a #anuncios
+----
+GIF
+----
+Lyra
+----
+BOT
+----
+Leonix
+----
+NUEVO
+----
+En línea
+----
+08.54 a. m.
+----
+Buscar
+----
+@ dv)
+----
+16/06/2023
+----
+Hora de extracción: 2023-06-16 08:56:47
+Confianza promedio: 86.91%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/empresa.jpg
+Texto extraído:
+Caso de estudio: Desarrollo de un sistema de reservas y administración de salas de reuniones
+----
+Definición del proyecto: Una empresa desea desarrollar un sistema de reservas y administración
+----
+de salas de reuniones para optimizar el proceso de programación y gestión de las salas en su
+----
+sece El objetivo es proporcionar a los empleados una herramienta fácil de usar que les permita
+----
+verificar la disponibilidad de las salas; realizar reservas, gestionar cancelaciones
+----
+y recibir
+----
+notificaciones pertinentes.
+----
+Instrucción. Describe
+----
+actividades son necesarias en cada una de las etapas del desarrollo
+----
+de proyectos
+----
+qué
+----
+Hora de extracción: 2023-06-16 09:37:01
+Confianza promedio: 80.80%
+■-----------------------------------------------------------------------------■
+Dirección de imagen: images/func.png
+Texto extraído:
+<tunction cloasname
+----
+Drpooozi9obo :o
+----
+0.00
+----
+Hora de extracción: 2023-06-18 23:22:12
+Confianza promedio: 41.48%
+■-----------------------------------------------------------------------------■
