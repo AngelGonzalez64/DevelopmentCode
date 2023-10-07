@@ -1,3 +1,10 @@
+#Optimiza: para que tenga un mejor rendimiento
+#Limpia: quita todo loq no se ocupe o sea inecesario
+#Comenta: Añade comentarios al codigo y para cada comando
+#Organiza: Acomoda todos los comandos, importaciones etc
+#Relleno: Añade mas contenido a cada comando 
+
+
 import datetime
 import discord
 from discord.ext import commands, tasks
