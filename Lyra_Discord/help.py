@@ -1,4 +1,6 @@
-# Lista de comandos interactiva
+# *****************************************
+# **    Lista de Comandos Interactiva    **
+# *****************************************
 commands_list = [
     {
         "name": "QR",
@@ -14,6 +16,11 @@ commands_list = [
         "name": "roles",
         "description": "Lista los roles del servidor.",
         "usage": "@Lyra roles",
+    },
+    {
+        "name": "crear_rol",
+        "description": "Lista los roles del servidor.",
+        "usage": "@Lyra crear_rol <contenido>",
     },
     {
         "name": "asignar_rol",

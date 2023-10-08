@@ -3,6 +3,7 @@
 #Comenta: Añade comentarios al codigo y para cada comando
 #Organiza: Acomoda todos los comandos, importaciones etc
 #Relleno: Añade mas contenido a cada comando 
+#Comando: Crear un rol
 
 
 import datetime

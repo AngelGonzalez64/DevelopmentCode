@@ -8,21 +8,26 @@ import random
 import string
 import secrets
 
-# Importaciones locales
+# *********************************
+# **    Importaciones Locales    **
+# *********************************
 from config import TOKEN, COMMAND_PREFIX
 from help import commands_list
 from color_embed import color_Embed
+from presences import set_bot_presence
 
-# Configuración de las intenciones del bot
+# ****************************************************
+# **    Configuración de las Intenciones del Bot    **
+# ****************************************************
 intents = discord.Intents.default()
 intents.typing = False
 intents.presences = True
 intents.members = True
+intents.guilds = True
+intents.messages = True
 
 # Crear el bot con un prefijo de comando y las intenciones configuradas
 bot = commands.Bot(command_prefix=commands.when_mentioned_or(COMMAND_PREFIX), intents=intents)
-
-start_time = datetime.datetime.now()
 
 # Evento que se ejecuta cuando el bot se conecta
 @bot.event
@@ -30,30 +35,20 @@ async def on_ready():
     print(f'Bot conectado como {bot.user.name} (ID: {bot.user.id})')
     print('-------------------------------------------------------')
 
-
-    # Define la presencia del bot de manera personalizada
-    custom_presence = discord.Activity(
-        type=discord.ActivityType.playing,
-        name="Conquistar Alemania 🚀",
-        details="¡Dominando el mundo!",
-        state=f"En {len(bot.guilds)} servidores"
-    )
-
-    await bot.change_presence(
-        activity=custom_presence,
-        status=discord.Status.online
-    )
-
-
-# Comando para generar códigos QR
+    await set_bot_presence(bot)
+    
+# *******************************************
+# **    Comando para Generar Códigos QR    **
+# *******************************************
 @bot.command()
 async def QR(ctx, *, contenido):
     try:
+        # Verificar que el contenido tenga menos de 500 caracteres
         if len(contenido) > 500:
             await ctx.send("El contenido debe tener un máximo de 500 caracteres para generar el QR correctamente.")
             return
 
-        autor = ctx.author.name
+        autor = ctx.author
 
         # Obtener el color correspondiente al comando
         color_tuple = color_Embed["QR"]
@@ -76,11 +71,11 @@ async def QR(ctx, *, contenido):
         img_io.seek(0)
 
         # Crear un Embed para la respuesta
-        embed = discord.Embed(title="Codigo QR generado", color=color)
-        embed.set_author(name=f"Solicitado por: {autor}", icon_url=ctx.author.avatar.url)
+        embed = discord.Embed(title="Código QR generado", color=color)
+        embed.set_author(name=f"Solicitado por: {autor.display_name}", icon_url=autor.avatar.url)
         embed.set_image(url="attachment://codigo_qr.png")
 
-        # Envia el Embed con la imagen del código QR en el canal donde se llamó el comando
+        # Enviar el Embed con la imagen del código QR en el canal donde se llamó el comando
         await ctx.send(embed=embed, file=discord.File(img_io, filename="codigo_qr.png"))
 
         # Borrar el mensaje que menciona al bot y el mensaje original que generó el comando
@@ -89,7 +84,9 @@ async def QR(ctx, *, contenido):
         traceback.print_exc()
         await ctx.send(f'Error al generar el código QR: {str(e)}')
 
-# Comando para mostrar estadísticas del servidor
+# **********************************************************
+# **    Comando para Mostrar Estadísticas Del Servidor    **
+# **********************************************************
 @bot.command()
 async def estadisticas(ctx):
     try:
@@ -126,6 +123,9 @@ async def estadisticas(ctx):
         traceback.print_exc()
         await ctx.send(f'Error al dar las Estadísticas: {str(e)}')
 
+# *******************************************************
+# **    Comando Para Mostrar Los Roles Del Servidor    **
+# *******************************************************
 @bot.command()
 async def roles(ctx):
     try:
@@ -160,8 +160,37 @@ async def roles(ctx):
         traceback.print_exc()
         await ctx.send(f'Error al mostrar los Roles: {str(e)}')
 
+# ****************************************
+# **    Comando para Crear un Rol    **
+# ****************************************
+@bot.command()
+async def crear_rol(ctx, rol_nombre):
+    try:
+        # Obtener el color correspondiente al comando
+        color_tuple = color_Embed["crear_rol"]
+        color = discord.Colour.from_rgb(*color_tuple)
 
-# Comando para asignar un rol a un miembro
+        # Verifica si el autor tiene permisos para crear roles
+        if ctx.author.guild_permissions.manage_roles:
+            # Crea el rol en el servidor
+            await ctx.guild.create_role(name=rol_nombre)
+            
+            # Crear un Embed
+            embed = discord.Embed(
+                title="Rol Creado",
+                description=f"Se ha creado el rol '{rol_nombre}' con éxito.",
+                color=color
+            )
+            
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send("No tienes permisos para crear roles en este servidor.")
+    except Exception as e:
+        await ctx.send(f"Ha ocurrido un error al crear el rol: {str(e)}")
+
+# ****************************************************
+# **    Comando para Asignar un Rol a un Miembro    **
+# ****************************************************
 @bot.command()
 async def asignar_rol(ctx, rol: discord.Role, miembro: discord.Member):
     try:
@@ -186,7 +215,9 @@ async def asignar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         traceback.print_exc()
         await ctx.send(f'Error al asignar un rol: {str(e)}')
 
-# Comando para quitar un rol a un miembro
+# ***************************************************
+# **    Comando para Quitar un Rol a un Miembro    **
+# ***************************************************
 @bot.command()
 async def quitar_rol(ctx, rol: discord.Role, miembro: discord.Member):
     try:
@@ -211,7 +242,9 @@ async def quitar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         traceback.print_exc()
         await ctx.send(f'Error al quitar un rol: {str(e)}')
 
-# Comando para solicitar la información de un usuario
+# ***************************************************************
+# **    Comando para Solicitar la Información de un Usuario    **
+# ***************************************************************
 @bot.command()
 async def userinfo(ctx, member: discord.Member = None):
     try:
@@ -241,7 +274,9 @@ async def userinfo(ctx, member: discord.Member = None):
         traceback.print_exc()
         await ctx.send(f'Error al obtener la información del usuario: {str(e)}')
 
-# Comando para solicitar la información del bot
+# *********************************************************
+# **    Comando para Solicitar la Información del Bot    **
+# *********************************************************
 @bot.command()
 async def infobot(ctx):
     try:
@@ -261,7 +296,9 @@ async def infobot(ctx):
         traceback.print_exc()
         await ctx.send(f'Error al obtener la información del bot: {str(e)}')
 
-# Comando para lanzar una moneda al azar
+# **************************************************
+# **    Comando para Lanzar una Moneda al Azar    **
+# **************************************************
 @bot.command()
 async def moneda(ctx):
     try:
@@ -288,12 +325,14 @@ async def moneda(ctx):
         traceback.print_exc()
         await ctx.send(f'Error al tirar la moneda: {str(e)}')
 
-# Comando para generar una contraseña segura
+# ******************************************************
+# **    Comando para Generar una Contraseña Segura    **
+# ******************************************************
 @bot.command()
-async def clave_pass(ctx, longitud: int = 20):
+async def password(ctx, longitud: int = 20):
     try:
         # Obtener el color correspondiente al comando
-        color_tuple = color_Embed["clave_pass"]
+        color_tuple = color_Embed["password"]
         color = discord.Colour.from_rgb(*color_tuple)
 
         caracteres = string.ascii_letters + string.digits + string.punctuation
@@ -302,6 +341,7 @@ async def clave_pass(ctx, longitud: int = 20):
         # Crear un Embed para la contraseña segura
         embed = discord.Embed(title="Generador de Contraseña Segura", color=color)
         embed.add_field(name="Contraseña generada", value=f'||`{contrasena}`||', inline=False)
+        #print(f"Contraseña generada: {contrasena} por: {ctx.author.display_name}")
         embed.set_footer(text=f'Generada por {ctx.author.display_name}', icon_url=ctx.author.avatar.url)
 
         # Enviar el Embed en un mensaje privado al usuario
@@ -312,7 +352,9 @@ async def clave_pass(ctx, longitud: int = 20):
         traceback.print_exc()
         await ctx.send(f'Error al generar la contraseña: {str(e)}')
 
-# Comando para jugar a la ruleta rusa
+# ***********************************************
+# **    Comando para Jugar a la Ruleta Rusa    **
+# ***********************************************
 @bot.command()
 async def ruleta(ctx):
     try:
@@ -338,7 +380,9 @@ async def ruleta(ctx):
         traceback.print_exc()
         await ctx.send(f'Error, se trabó el revólver: {str(e)}')
 
-# Comando para enviar un mensaje anónimo
+# **************************************************
+# **    Comando para Enviar un Mensaje Anónimo    **
+# **************************************************
 @bot.command()
 async def mensaje_anonimo(ctx, canal: discord.TextChannel, *, contenido):
     try:
@@ -360,7 +404,9 @@ async def mensaje_anonimo(ctx, canal: discord.TextChannel, *, contenido):
         traceback.print_exc()
         await ctx.send(f'Error al enviar el mensaje: {str(e)}')
 
-# Comando para enviar un mensaje en código morse
+# **********************************************************
+# **    Comando para Enviar un Mensaje en Código Morse    **
+# **********************************************************
 @bot.command()
 async def morse(ctx, *mensaje):
     try:
@@ -393,7 +439,9 @@ async def morse(ctx, *mensaje):
         traceback.print_exc()
         await ctx.send(f'Error al traducir: {str(e)}')
 
-# Comando para realizar una prueba de latencia
+# ********************************************************
+# **    Comando para Realizar una Prueba de Latencia    **
+# ********************************************************
 @bot.command()
 async def ping(ctx):
     try:
@@ -414,7 +462,9 @@ async def ping(ctx):
         traceback.print_exc()
         await ctx.send(f'Error al establecer la latencia: {str(e)}')
 
-# Comando para solicitar la información del bot de servidores
+# ***********************************************************************
+# **    Comando para Solicitar la Información del Bot de Servidores    **
+# ***********************************************************************
 @bot.command()
 async def stats(ctx):
     try:
@@ -439,7 +489,7 @@ async def stats(ctx):
         traceback.print_exc()
         await ctx.send(f'Error: {str(e)}')
 
-# Comando para mostrar ayuda sobre los comandos disponibles
+
 @bot.command()
 async def ayuda(ctx, command_name: str = None):
     try:
@@ -465,6 +515,9 @@ async def ayuda(ctx, command_name: str = None):
         traceback.print_exc()
         await ctx.send(f'Error al obtener la ayuda del comando: {str(e)}')
 
+# *************************************************
+# **    Comando para Unirse a un Canal de Voz    **
+# *************************************************
 @bot.command()
 async def unirse(ctx):
     # Verifica si el autor del comando está en un canal de voz
@@ -484,6 +537,9 @@ async def unirse(ctx):
 
     print('-------------------------------------------------------')
 
+# ***********************************************
+# **    Comando para Salir del Canal de Voz    **
+# ***********************************************
 @bot.command()
 async def salir(ctx):
     # Verifica si el bot está en un canal de voz
