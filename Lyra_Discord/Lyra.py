@@ -15,6 +15,9 @@ from config import TOKEN, COMMAND_PREFIX
 from help import commands_list
 from color_embed import color_Embed
 from presences import set_bot_presence
+from Commands.EliminarRol import Eliminar_Rol
+
+
 
 # ****************************************************
 # **    Configuración de las Intenciones del Bot    **
@@ -32,11 +35,11 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or(COMMAND_PREFIX), in
 # Evento que se ejecuta cuando el bot se conecta
 @bot.event
 async def on_ready():
-    print(f'Bot conectado como {bot.user.name} (ID: {bot.user.id})')
+    print(f'Bot conectada como {bot.user.name} (ID: {bot.user.id})')
     print('-------------------------------------------------------')
 
     await set_bot_presence(bot)
-    
+
 # *******************************************
 # **    Comando para Generar Códigos QR    **
 # *******************************************
@@ -72,6 +75,8 @@ async def QR(ctx, *, contenido):
 
         # Crear un Embed para la respuesta
         embed = discord.Embed(title="Código QR generado", color=color)
+        mensaje_lyra = "He generado un Código QR para ti."
+        embed.description = mensaje_lyra
         embed.set_author(name=f"Solicitado por: {autor.display_name}", icon_url=autor.avatar.url)
         embed.set_image(url="attachment://codigo_qr.png")
 
@@ -82,7 +87,7 @@ async def QR(ctx, *, contenido):
         await ctx.message.delete()
     except Exception as e:
         traceback.print_exc()
-        await ctx.send(f'Error al generar el código QR: {str(e)}')
+        await ctx.send(f'He encontrado un error al generar el código QR: {str(e)}')
 
 # **********************************************************
 # **    Comando para Mostrar Estadísticas Del Servidor    **
@@ -106,6 +111,7 @@ async def estadisticas(ctx):
         offline_members = sum(1 for member in server.members if member.status != discord.Status.online)
 
         embed = discord.Embed(title=f"Estadísticas del Servidor {server.name}", color=color)
+        embed.description = "Aquí tienes las estadísticas del servidor."
         embed.set_thumbnail(url=server.icon.url)
         embed.add_field(name="Miembros Totales", value=member_count)
         embed.add_field(name="No. Roles", value=role_count)
@@ -146,7 +152,7 @@ async def roles(ctx):
 
         # Crear un Embed para la lista de roles
         embed = discord.Embed(
-            title=f"Roles en el Servidor ({len(server.roles) - 1} roles)",  # Restar 1 para excluir "@everyone"
+            title=f"Roles en este Servidor ({len(server.roles) - 1} roles)",  # Restar 1 para excluir "@everyone"
             description=roles_list_message,
             color=color
         )
@@ -178,7 +184,7 @@ async def crear_rol(ctx, rol_nombre):
             # Crear un Embed
             embed = discord.Embed(
                 title="Rol Creado",
-                description=f"Se ha creado el rol '{rol_nombre}' con éxito.",
+                description = f"¡He creado el rol '{rol_nombre}' con éxito!",
                 color=color
             )
             
@@ -187,6 +193,7 @@ async def crear_rol(ctx, rol_nombre):
             await ctx.send("No tienes permisos para crear roles en este servidor.")
     except Exception as e:
         await ctx.send(f"Ha ocurrido un error al crear el rol: {str(e)}")
+
 
 # ****************************************************
 # **    Comando para Asignar un Rol a un Miembro    **
@@ -204,7 +211,7 @@ async def asignar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         embed = discord.Embed(title="Asignación de Rol", color=color)
         embed.add_field(name="Rol asignado", value=rol.mention, inline=False)
         embed.add_field(name="Miembro", value=miembro.mention, inline=False)
-        embed.set_footer(text=f"Asignado por {ctx.author.display_name}", icon_url=ctx.author.avatar.url)
+        embed.set_footer(text=f"Asigné el rol por {ctx.author.display_name}", icon_url=ctx.author.avatar.url)
         embed.set_thumbnail(url=miembro.avatar.url)
 
         await ctx.send(embed=embed)
@@ -231,7 +238,7 @@ async def quitar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         embed = discord.Embed(title="Quitar Rol", color=color)
         embed.add_field(name="Rol retirado", value=rol.mention, inline=False)
         embed.add_field(name="Miembro", value=miembro.mention, inline=False)
-        embed.set_footer(text=f"Retirado por {ctx.author.display_name}", icon_url=ctx.author.avatar.url)
+        embed.set_footer(text=f"Retiré el rol por {ctx.author.display_name}", icon_url=ctx.author.avatar.url)
         embed.set_thumbnail(url=miembro.avatar.url)
 
         await ctx.send(embed=embed)
@@ -241,6 +248,12 @@ async def quitar_rol(ctx, rol: discord.Role, miembro: discord.Member):
     except Exception as e:
         traceback.print_exc()
         await ctx.send(f'Error al quitar un rol: {str(e)}')
+
+# *****************************************************
+# **    Comando para Eliminar un Rol del Servidor    **
+# *****************************************************
+
+Eliminar_Rol(bot)
 
 # ***************************************************************
 # **    Comando para Solicitar la Información de un Usuario    **
@@ -278,19 +291,19 @@ async def userinfo(ctx, member: discord.Member = None):
 # **    Comando para Solicitar la Información del Bot    **
 # *********************************************************
 @bot.command()
-async def infobot(ctx):
+async def Lyra(ctx):
     try:
         # Obtener el color correspondiente al comando
         color_tuple = color_Embed["infobot"]
         color = discord.Colour.from_rgb(*color_tuple)
 
         bot_user = bot.user
-        embed = discord.Embed(title="Información del Bot", color=color)
+        embed = discord.Embed(title="Información sobre mí", color=color)
         embed.set_thumbnail(url=bot_user.avatar.url)
         embed.add_field(name="Nombre", value=bot_user.name, inline=False)
         embed.add_field(name="Versión", value="1.0", inline=False)
-        embed.add_field(name="Creado por", value="Leonix64", inline=False)
-        embed.add_field(name="Código fuente", value="[Enlace al código fuente](Proximamente...)", inline=False)
+        embed.add_field(name="Creada por", value="Leonix64", inline=False)
+        embed.add_field(name="Mi código fuente", value="[Enlace al código fuente](Proximamente...)", inline=False)
         await ctx.send(embed=embed)
     except Exception as e:
         traceback.print_exc()
@@ -452,7 +465,7 @@ async def ping(ctx):
         latency = round(bot.latency * 1000)  # Convertir latencia a milisegundos
 
         # Crear un Embed para mostrar la latencia
-        embed = discord.Embed(title="Ping del Bot", color=color)
+        embed = discord.Embed(title="Ping de Lyra", color=color)
         embed.add_field(name="Pong! Latencia", value=f"{latency} ms", inline=False)
         embed.set_footer(text=f"Solicitado por {ctx.author.display_name}", icon_url=ctx.author.avatar.url)
 
@@ -477,7 +490,7 @@ async def stats(ctx):
         uptime = datetime.datetime.utcnow() - bot.user.created_at.replace(tzinfo=None)
 
         # Crear un Embed para mostrar las estadísticas del bot
-        embed = discord.Embed(title="Estadísticas del Bot", color=color)
+        embed = discord.Embed(title=" Mis Estadísticas", color=color)
         embed.add_field(name="Usuarios totales", value=total_users)
         embed.add_field(name="Servidores totales", value=total_servers)
         embed.add_field(name="Tiempo en línea", value=str(uptime).split(".")[0])
@@ -489,7 +502,9 @@ async def stats(ctx):
         traceback.print_exc()
         await ctx.send(f'Error: {str(e)}')
 
-
+# ***************************************************************
+# **    Comando para Solicitar Ayuda con Comandos Generales    **
+# ***************************************************************
 @bot.command()
 async def ayuda(ctx, command_name: str = None):
     try:
@@ -507,7 +522,7 @@ async def ayuda(ctx, command_name: str = None):
                     return
             await ctx.send(f"No se encontró el comando '{command_name}'.")
         else:
-            embed = discord.Embed(title="Comandos Disponibles", color=0x00ff00)
+            embed = discord.Embed(title="Comandos Disponibles", color=color)
             for command in commands_list:
                 embed.add_field(name=command["name"], value=command["description"], inline=False)
             await ctx.send(embed=embed)
@@ -522,7 +537,17 @@ async def ayuda(ctx, command_name: str = None):
 async def unirse(ctx):
     # Verifica si el autor del comando está en un canal de voz
     if ctx.author.voice is None:
-        await ctx.send("Debes estar en un canal de voz para que el bot se una.")
+        # Obtener el color correspondiente al comando
+        color_tuple = color_Embed["unirse_error"]
+        color = discord.Colour.from_rgb(*color_tuple)
+
+        # Crear un embed de error con un color RGB personalizado
+        embed = discord.Embed(
+            title="Error al unirse al canal de voz",
+            description="Debes estar en un canal de voz para que yo me una.",
+            color=color
+        )
+        await ctx.send(embed=embed)
         return
 
     # Obtén el canal de voz en el que se encuentra el autor del comando
@@ -530,10 +555,30 @@ async def unirse(ctx):
 
     # Intenta unirse al canal de voz
     try:
+        # Obtener el color correspondiente al comando
+        color_tuple = color_Embed["unirse"]
+        color = discord.Colour.from_rgb(*color_tuple)
+
         voice_client = await channel.connect()
-        await ctx.send(f'El bot se ha unido al canal de voz: {channel.name}')
-    except discord.ClientException as e:
-        await ctx.send(f'Error al unirse al canal de voz: {e}')
+
+        # Crear un embed exitoso con un color RGB personalizado
+        embed = discord.Embed(
+            title="Lyra se unido al canal de voz",
+            description=f"Me he unido al canal de voz: {channel.name}",
+            color=color
+        )
+        await ctx.send(embed=embed)
+    except Exception as e:
+        # Crear un embed de error con un color RGB personalizado para mostrar el error
+        color_tuple = color_Embed["unirse_error"]
+        color = discord.Colour.from_rgb(*color_tuple)
+
+        embed = discord.Embed(
+            title="Error al unirse al canal de voz",
+            description=f"Ocurrió un error al intentar unirse al canal de voz: {e}",
+            color=color
+        )
+        await ctx.send(embed=embed)
 
     print('-------------------------------------------------------')
 
@@ -544,8 +589,36 @@ async def unirse(ctx):
 async def salir(ctx):
     # Verifica si el bot está en un canal de voz
     if ctx.voice_client is not None:
-        await ctx.voice_client.disconnect()
-        await ctx.send('El bot se ha desconectado del canal de voz.')
+        try:
+            await ctx.voice_client.disconnect()
+
+            # Obtener el color correspondiente al comando
+            color_tuple = color_Embed["salir"]
+            color = discord.Colour.from_rgb(*color_tuple)
+
+            # Crear un embed con un color RGB personalizado (por ejemplo, RGB 100, 200, 50)
+            embed = discord.Embed(
+                title="Bot desconectado del canal de voz",
+                description="Me he desconectado exitosamente del canal de voz.",
+                color=color
+            )
+            await ctx.send(embed=embed)
+        except Exception as e:
+            # Crear un embed con un color RGB personalizado para mostrar el error (por ejemplo, RGB 200, 50, 50)
+            embed = discord.Embed(
+                title="Error al desconectarse del canal de voz",
+                description=f"Ocurrió un error al intentar desconectarse del canal de voz: {e}",
+                color=color
+            )
+            await ctx.send(embed=embed)
+    else:
+        # Si el bot no está en un canal de voz
+        embed = discord.Embed(
+            title="Error al desconectarse del canal de voz",
+            description="El bot no está en un canal de voz.",
+            color=color
+        )
+        await ctx.send(embed=embed)
 
     print('-------------------------------------------------------')
 

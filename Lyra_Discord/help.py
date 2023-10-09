@@ -48,7 +48,7 @@ commands_list = [
         "usage": "@Lyra moneda",
     },
     {
-        "name": "clave_pass",
+        "name": "password",
         "description": "Genera una contraseña segura y la envía por mensaje privado.",
         "usage": "@Lyra clave_pass [longitud]",
     },
