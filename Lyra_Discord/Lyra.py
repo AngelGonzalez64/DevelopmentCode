@@ -8,7 +8,7 @@ from config import TOKEN, COMMAND_PREFIX
 from presences import *
 from Commands.Roles import *
 from Commands.Entertainment import *
-from Commands.information import *
+from Commands.Information import *
 from Commands.Security import *
 from Commands.Call import *
 
@@ -37,7 +37,7 @@ async def on_ready():
     # Configurar la presencia del las actividades del bot
     await set_bot_presence(bot)
 
-# Comandos
+# Llamada de Comandos
 Code_QR(bot)
 Server_Info(bot)
 Mostrar_Roles(bot)
@@ -57,6 +57,39 @@ Estadisticas_Bot_Info(bot)
 Ayuda(bot)
 Join_Llamada(bot)
 Exit_Call(bot)
+
+# COMANDOS
+#//=============================================//
+
+# Security
+#@Lyra QR <contenido>
+#@Lyra password <int>
+#@Lyra mensaje_anonimo <#canal> <contenido>
+#@Lyra morse <contenido>
+
+# Roles
+#@Lyra roles
+#@Lyra crear_rol <contenido>
+#@Lyra asignar_rol <@rol> <@miembro>
+#@Lyra quitar_rol <@rol> <@miembro>
+#@Lyra eliminar_rol <@rol>
+
+# Information
+#@Lyra Lyra
+#@Lyra userinfo <@miembro>
+#@Lyra stats
+#@Lyra estadisticas
+#@Lyra ayuda <Comando>
+#@Lyra ping
+
+# Entertainment
+#@Lyra moneda
+#@Lyra ruleta
+
+# Call
+#@Lyra unirse
+#@Lyra salir
+
 
 # Iniciar el bot con el token
 try:

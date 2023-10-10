@@ -116,7 +116,7 @@ color_Embed = {
 }
 
 #from presences import set_bot_presence
-from Commands.roles import eliminar_rol
+from Commands.Roles import eliminar_rol
 
 # ****************************************************
 # **    Configuración de las Intenciones del Bot    **

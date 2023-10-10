@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import traceback
 from color_embed import color_Embed
+import asyncio
 
 # *******************************************************
 # **    Comando Para Mostrar Los Roles Del Servidor    **
@@ -10,6 +11,11 @@ def Mostrar_Roles(bot):
     @bot.command()
     async def roles(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["roles"]  # Valor por defecto si no se encuentra
             color = discord.Colour.from_rgb(*color_tuple)
@@ -48,6 +54,11 @@ def Crear_Rol(bot):
     @bot.command()
     async def crear_rol(ctx, rol_nombre):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["crear_rol"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -77,6 +88,11 @@ def Asignar_Rol(bot):
     @bot.command()
     async def asignar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["asignar_rol"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -105,6 +121,11 @@ def Quitar_Rol(bot):
     @bot.command()
     async def quitar_rol(ctx, rol: discord.Role, miembro: discord.Member):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["quitar_rol"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -135,6 +156,11 @@ def Eliminar_Rol(bot):
     @bot.command()
     async def eliminar_rol(ctx, rol: discord.Role):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Verifica si el autor tiene permisos para administrar roles
             if ctx.author.guild_permissions.manage_roles:
                 # Elimina el rol del servidor

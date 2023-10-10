@@ -5,6 +5,7 @@ from color_embed import color_Embed
 import random
 import datetime
 from help import commands_list
+import asyncio
 
 # *********************************************************
 # **    Comando para Solicitar la Información del Bot    **
@@ -13,6 +14,11 @@ def Lyra_Info(bot):
     @bot.command()
     async def Lyra(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["infobot"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -36,6 +42,11 @@ def User_Info(bot):
     @bot.command()
     async def userinfo(ctx, member: discord.Member = None):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["userinfo"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -69,6 +80,11 @@ def Estadisticas_Bot_Info(bot):
     @bot.command()
     async def stats(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["stats"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -97,6 +113,11 @@ def Server_Info(bot):
     @bot.command()
     async def estadisticas(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["estadisticas"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -138,6 +159,11 @@ def Ayuda(bot):
     @bot.command()
     async def ayuda(ctx, command_name: str = None):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["ayuda"]
             color = discord.Colour.from_rgb(*color_tuple)

@@ -6,6 +6,7 @@ import traceback
 from color_embed import color_Embed
 import string
 import secrets
+import asyncio
 
 # *******************************************
 # **    Comando para Generar Códigos QR    **
@@ -20,6 +21,10 @@ def Code_QR(bot):
                 return
 
             autor = ctx.author
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
 
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["QR"]
@@ -64,6 +69,11 @@ def Password(bot):
     @bot.command()
     async def password(ctx, longitud: int = 20):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["password"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -92,6 +102,11 @@ def Anonimo(bot):
     @bot.command()
     async def mensaje_anonimo(ctx, canal: discord.TextChannel, *, contenido):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["mensaje_anonimo"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -117,6 +132,11 @@ def Code_Morse(bot):
     @bot.command()
     async def morse(ctx, *mensaje):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+                
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["morse"]
             color = discord.Colour.from_rgb(*color_tuple)

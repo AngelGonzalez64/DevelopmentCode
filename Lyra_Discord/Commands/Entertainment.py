@@ -3,6 +3,7 @@ from discord.ext import commands
 import traceback
 from color_embed import color_Embed
 import random
+import asyncio
 
 # **************************************************
 # **    Comando para Lanzar una Moneda al Azar    **
@@ -11,6 +12,11 @@ def Moneda(bot):
     @bot.command()
     async def moneda(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["moneda"]
             color = discord.Colour.from_rgb(*color_tuple)
@@ -41,6 +47,11 @@ def Ruleta_Rusa(bot):
     @bot.command()
     async def ruleta(ctx):
         try:
+
+            # Mostrar "Escribiendo..."
+            async with ctx.typing():
+                await asyncio.sleep(3) # Esperar 3 segundos simulando "Escribiendo..."
+
             # Obtener el color correspondiente al comando
             color_tuple = color_Embed["ruleta"]
             color = discord.Colour.from_rgb(*color_tuple)
