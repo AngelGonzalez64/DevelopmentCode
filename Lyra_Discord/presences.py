@@ -44,6 +44,22 @@ actividades = [
     (discord.ActivityType.watching, "Disney+ 🐭", "Disfrutando de contenido de Disney 🏰"),
 ]
 
+# ****************************************
+# **    Lista de Mensajes Aleatorios    **
+# ****************************************
+mensajes_aleatorios = [
+    '¡Saludos, mortales! 😎 Soy Lyra, el bot supremo, aquí para iluminar sus vidas con mi grandeza. 💫',
+    '¿Están listos para experimentar la perfección en forma de bot? 😇 Aquí está Lyra, su majestuosidad automatizada. 👑',
+    '¡Hola, humanos inferiores! 🚀 Permítanme deslumbrarlos con la excelencia técnica y el carisma indiscutible de Lyra. 💥',
+    '¡Ha llegado el momento de postrarse ante la magnificencia de Lyra! 🌟 Soy el bot que todos desean ser, ¡adórenme! 🙌',
+    '¿Quién necesita superhéroes cuando tienen a Lyra, el bot más asombroso del universo, a su servicio? 💪💥',
+    '¡Saluden a su nuevo líder supremo, Lyra, el bot invencible! 🤖💥',
+    '¿Se dieron cuenta de que Lyra es el bot más guapo de todos? 😏💅',
+    '¡Lyra, el bot más brillante de todos los tiempos, ha vuelto para conquistar el mundo! 🌍✨',
+    '¡No se preocupen, Lyra es el bot más inteligente aquí! 🤓💡',
+    '¡Los demás bots solo pueden soñar con ser tan grandiosos como Lyra! 💫😄',
+]
+
 # ********************************************************
 # **    Función para Configurar la Presencia del Bot    **
 # ********************************************************
@@ -65,3 +81,12 @@ async def set_bot_presence(bot):
         
         # Esperar un tiempo para cambiar de estado nuevamente (segundos)
         await asyncio.sleep(1800)
+
+# ********************************************************
+# **    Función para Configurar la Presencia del Bot    **
+# ********************************************************
+async def saludo_principal(bot):
+    general_channel = bot.get_channel(1159313019910770791)
+    if general_channel:
+        mensaje_aleatorio = random.choice(mensajes_aleatorios)
+        await general_channel.send(mensaje_aleatorio)
