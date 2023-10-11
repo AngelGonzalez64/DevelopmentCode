@@ -11,6 +11,7 @@ from Commands.Entertainment import *
 from Commands.Information import *
 from Commands.Security import *
 from Commands.Call import *
+from Commands.Greetings import *
 
 # ****************************************************
 # **    Configuración de las Intenciones del Bot    **
@@ -33,62 +34,45 @@ async def on_ready():
     print('-------------------------------------------------------')
 
     # Enviar un mensaje al canal general cuando el bot se conecta
-    await saludo_principal(bot)
+    #await saludo_principal(bot)
+
     # Configurar la presencia del las actividades del bot
     await set_bot_presence(bot)
 
-# Llamada de Comandos
-Code_QR(bot)
-Server_Info(bot)
-Mostrar_Roles(bot)
-Crear_Rol(bot)
-Asignar_Rol(bot)
-Quitar_Rol(bot)
-Eliminar_Rol(bot)
-User_Info(bot)
-Lyra_Info(bot)
-Moneda(bot)
-Password(bot)
-Ruleta_Rusa(bot)
-Anonimo(bot)
-Code_Morse(bot)
-Latencia(bot)
-Estadisticas_Bot_Info(bot)
-Ayuda(bot)
-Join_Llamada(bot)
-Exit_Call(bot)
-
-# COMANDOS
+# CATEGORIAS DE COMANDOS
 #//=============================================//
 
-# Security
-#@Lyra QR <contenido>
-#@Lyra password <int>
-#@Lyra mensaje_anonimo <#canal> <contenido>
-#@Lyra morse <contenido>
+# /=== Seguridad ===/
+Code_QR(bot) #@Lyra QR <contenido>
+Password(bot) #@Lyra password <int>
+Anonimo(bot) #@Lyra mensaje_anonimo <#canal> <contenido>
+Code_Morse(bot) #@Lyra morse <contenido>
 
-# Roles
-#@Lyra roles
-#@Lyra crear_rol <contenido>
-#@Lyra asignar_rol <@rol> <@miembro>
-#@Lyra quitar_rol <@rol> <@miembro>
-#@Lyra eliminar_rol <@rol>
+# /=== Roles  ===/
+Mostrar_Roles(bot) #@Lyra roles
+Crear_Rol(bot) #@Lyra crear_rol <contenido>
+Asignar_Rol(bot) #@Lyra asignar_rol <@rol> <@miembro>
+Quitar_Rol(bot) #@Lyra quitar_rol <@rol> <@miembro>
+Eliminar_Rol(bot) #@Lyra eliminar_rol <@rol>
 
-# Information
-#@Lyra Lyra
-#@Lyra userinfo <@miembro>
-#@Lyra stats
-#@Lyra estadisticas
-#@Lyra ayuda <Comando>
-#@Lyra ping
+# /=== Informacion  ===/
+Lyra_Info(bot) #@Lyra Lyra
+User_Info(bot) #@Lyra userinfo <@miembro>
+Estadisticas_Bot_Info(bot) #@Lyra stats
+Server_Info(bot) #@Lyra estadisticas
+Ayuda(bot) #@Lyra ayuda 
+Latencia(bot) #@Lyra ping
 
-# Entertainment
-#@Lyra moneda
-#@Lyra ruleta
+# /=== Entretenimiento  ===/
+Moneda(bot) #@Lyra moneda
+Ruleta_Rusa(bot) #@Lyra ruleta
 
-# Call
-#@Lyra unirse
-#@Lyra salir
+# /=== Llamada  ===/
+Join_Llamada(bot) #@Lyra unirse
+Exit_Call(bot) #@Lyra salir
+
+# /=== Saludo  ===/
+Saludar(bot) #@Lyra hola-
 
 
 # Iniciar el bot con el token

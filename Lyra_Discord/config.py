@@ -1,4 +1,4 @@
-TOKEN = 'MTA5ODM3MTAyNjUxNTE0NDg0NQ.Ga46v0.V4KzVTIs_9qdyKIbP7GpoahFtMbzPJ6Ds3cwas'
+TOKEN = 'Tu_Token'
 COMMAND_PREFIX = "!"
 
 #Permisos (se pone como custom link en el bot OAuth2)

@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import traceback
-from color_embed import color_Embed
+from embed import color_Embed
 import asyncio
 
 # *******************************************************

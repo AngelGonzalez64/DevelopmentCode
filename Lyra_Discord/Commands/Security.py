@@ -3,7 +3,7 @@ from discord.ext import commands, tasks
 import qrcode
 from io import BytesIO
 import traceback
-from color_embed import color_Embed
+from embed import color_Embed
 import string
 import secrets
 import asyncio

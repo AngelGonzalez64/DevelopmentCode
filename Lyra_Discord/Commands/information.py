@@ -1,8 +1,7 @@
 import discord
 from discord.ext import commands
 import traceback
-from color_embed import color_Embed
-import random
+from embed import color_Embed
 import datetime
 from help import commands_list
 import asyncio
@@ -178,13 +177,27 @@ def Ayuda(bot):
                         return
                 await ctx.send(f"No se encontró el comando '{command_name}'.")
             else:
-                embed = discord.Embed(title="Comandos Disponibles", color=color)
+                # Crear un diccionario de categorías
+                categorias = {
+                    "/=== Seguridad ===/": [],
+                    "/=== Roles  ===/": [],
+                    "/=== Informacion  ===/": [],
+                    "/=== Entretenimiento  ===/": [],
+                    "/=== Llamada  ===/": [],
+                    "/=== Saludo  ===/": []
+                }
                 for command in commands_list:
-                    embed.add_field(name=command["name"], value=command["description"], inline=False)
+                    categorias[command['category']].append(f"**{command['name']}** - {command['description']}\n*`Uso:`* {command['usage']}\n")
+                
+                embed = discord.Embed(title="Comandos Disponibles por Categoría", color=color)
+                for categoria, comandos in categorias.items():
+                    if comandos:
+                        embed.add_field(name=f"**{categoria}**", value="\n".join(comandos), inline=False)
                 await ctx.send(embed=embed)
         except Exception as e:
             traceback.print_exc()
             await ctx.send(f'Error al obtener la ayuda del comando: {str(e)}')
+
 
 # ********************************************************
 # **    Comando para Realizar una Prueba de Latencia    **

@@ -30,7 +30,7 @@ async def givemebadge(interaction: Interaction):
     await interaction.response.send_message("Listo!, espera 24 horas para reclamar la insignia\nPuedes reclamarla aquí: https://discord.com/developers/active-developer")
 
 # Ejecutamos el bot con el token de autenticación
-bot.run("MTA2NDY4MDY4MTAwMDY3NzQ0Ng.GOPgbF.Izwy9iYHcMG5M2464Qr2NgM62k6dM2fRym2E1g")
+bot.run("Aqui_Pones_Tu_Token")
 
 
 #Correrlo desde la terminal

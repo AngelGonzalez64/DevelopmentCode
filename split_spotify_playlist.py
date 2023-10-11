@@ -41,11 +41,12 @@ def create_and_populate_playlists(sp, source_playlist_id, track_limit):
         sp.playlist_add_items(new_playlist_id, track_ids)
 
 # Reemplaza los siguientes valores con tus propios datos
-client_id = 'c590c96085ed4a8db9a4320c74ffdfb9'
-client_secret = '0628a351e438428ab741503cd04eae78'
-redirect_uri = 'http://localhost:8000'
-username = 'uguoch86lmtdk1414a9qir8nt'
-source_playlist_id = 'https://open.spotify.com/playlist/3WdwJcPgMi4773fQuc91yU?si=efae5fa0c7df4159'
+client_id = 'TuIDdeClienteDeSpotify'
+client_secret = 'TuSecretoDeClienteDeSpotify'
+redirect_uri = 'TuURIdeRedirección'
+username = 'TuNombreDeUsuarioDeSpotify'
+source_playlist_id = 'TuIDdePlaylistDeSpotify'
+
 
 # Configuración de la autenticación de Spotipy
 scope = 'playlist-modify-public playlist-read-private'

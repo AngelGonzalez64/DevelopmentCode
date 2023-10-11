@@ -5,10 +5,11 @@ from google.cloud import texttospeech
 from pydub import AudioSegment
 from pydub.playback import play
 
+#De aqui sacas el archivo Json que necesitas: https://console.cloud.google.com/
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/angel/OneDrive/Documentos/Codigos_Random/Chat/vtuberchat-384008-9a4c7fd95572.json"
 
 # Clave de API de OpenAI
-openai.api_key = "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"
+openai.api_key = "TuClaveDeAccesoDeOpenAIAqui"
 
 
 def generate_text(prompt, prompt_lang="es", response_lang="es"):

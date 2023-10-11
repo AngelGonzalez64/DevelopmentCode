@@ -29,7 +29,7 @@ async def on_ready():
         await channel.send('/givemebadge')  # Cambia esto por el mensaje que desees
 
 # Ejecutamos el bot con el token de autenticación
-client.run('MTA4NzE5NzkwNDAyNTk1MjI3Nw.G6w4et._KrphmAJQLOMGLwHPohxBKabBtQPE7w6TmI-tM')
+client.run("Aqui_Pones_Tu_Token")
 
 
 #Correrlo desde la terminal

@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from color_embed import color_Embed
+from embed import color_Embed
 import asyncio
 
 # *************************************************

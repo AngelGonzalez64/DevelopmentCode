@@ -5,10 +5,11 @@ import openai
 import os
 from google.cloud import texttospeech
 
+#De aqui sacas el archivo Json que necesitas: https://console.cloud.google.com/
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:/Users/angel/OneDrive/Documentos/Codigos_Random/Chat/vtuberchat-384008-9a4c7fd95572.json"
 
 # Reemplaza esto con tu clave de API de OpenAI
-openai.api_key = "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"
+openai.api_key = "TuClaveDeAccesoDeOpenAIAqui"
 
 def generate_text(prompt, prompt_lang="es", response_lang="es"):
     prompt = f"Una persona que habla español pregunta: '{prompt}'. Respuesta: {response_lang}"
